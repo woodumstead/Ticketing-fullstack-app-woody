@@ -11,13 +11,13 @@ router.get("/", customerController.getAllCustomers);
 router.get("/:id", customerController.getSingleCustomer);
 
 // new customer
-// router.post("/", customerController.newCustomer);
+router.post("/", customerController.addNewCustomer);
 
-// // edit customer
-// router.put("/:id", customerController.editCustomer);
+// edit customer
+//router.put("/:id", customerController.editCustomer);
 
-// // delete customer
-// router.delete("/:id", customerController.deleteCustomer);
+// delete customer
+router.delete("/:id", customerController.deleteCustomer);
 
 
 // exports

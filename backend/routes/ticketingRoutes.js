@@ -11,13 +11,13 @@ router.get("/", ticketingController.getAllTickets);
 router.get("/:id", ticketingController.getSingleTicket);
  
 // purchase ticket
-// router.post("/", ticketingController.newTicket);
+router.post("/", ticketingController.addNewTicket);
 
-// // edit ticket
-// router.put("/:id", ticketingController.editTicket);
+// edit ticket
+//router.put("/:id", ticketingController.editTicket);
 
-// // delete ticket
-// router.delete("/:id", ticketingController.deleteTicket);
+// delete ticket
+router.delete("/:id", ticketingController.deleteTicket);
 
 
 // exports

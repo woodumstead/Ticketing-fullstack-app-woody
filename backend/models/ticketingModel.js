@@ -10,10 +10,22 @@ const Ticketing = sequelize.define("ticket", {
         autoIncrement: true
 
     },
-    name: {
+    match: {
         type: DataTypes.STRING,
         allowNull: false
 
+    },
+    seat: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    date: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    customer_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps: false
