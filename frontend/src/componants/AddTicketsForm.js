@@ -32,7 +32,7 @@ const AddTicketsForm = ({handlerAddTicket}) => {
             match: ticketMatch,
             date: ticketDate,
             seat: ticketSeat,
-            categoryId: ticketCategory
+            customer_id: ticketCategory
         }
         handlerAddTicket(formData);
     }
