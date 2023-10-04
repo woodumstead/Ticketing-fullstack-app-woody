@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 
 
 // --------  DB connection config
-const sequelize = new Sequelize("ticketing", "robertredmiles", "Cream13", {
+const sequelize = new Sequelize("ticketing", "Werk", "milesboi", {
     host: "localhost",
     dialect: "postgres"
 });
