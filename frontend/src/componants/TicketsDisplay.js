@@ -6,7 +6,6 @@ const TicketDisplay = ({list}) => {
             {list && 
                 list.map((ticket) => (
                     <li key={ticket.id}>
-                        {ticket.name}
                         {ticket.match}
                         {ticket.date}
                         {ticket.seat} </li>

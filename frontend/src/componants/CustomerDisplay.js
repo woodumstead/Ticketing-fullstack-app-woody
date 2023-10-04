@@ -1,11 +1,11 @@
-const NameDisplay = ({list}) => {
+const CustomerDisplay = ({list}) => {
     return (
         <div>
             <h2>Name of Season Pass Holder</h2>
             <ul>
             {list && 
-                list.map((name) => (
-                    <li key={name.id}>{name.name}</li>
+                list.map((customer) => (
+                    <li key={customer.id}>{customer.name}</li>
                 ))
             }
             </ul>
@@ -13,4 +13,4 @@ const NameDisplay = ({list}) => {
     )
 }
 
-export default NameDisplay;
+export default CustomerDisplay;

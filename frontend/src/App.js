@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
-import AddNameForm from './componants/AddNameForm';
+import AddCustomerForm from './componants/AddCustomerForm';
 import AddTicketsForm from './componants/AddTicketsForm';
-import NameDisplay from './componants/NameDisplay';
+import CustomerDisplay from './componants/CustomerDisplay';
 import TicketDisplay from './componants/TicketsDisplay';
 import './App.css';
 import apiConn from './api/conn';
 
 function App() {
-  const [name, setName] = useState([
+  const [customer, setCustomer] = useState([
     {
-      name: 'text'
+      customer: 'text'
     }
   ]);
   const [tickets, setTickets] = useState([
     {
-      name: 'text',
       match: 'text',
       date: 'date',
       seat: 'number',
@@ -22,12 +21,12 @@ function App() {
     }
   ]);
 
-  const getName = async () => {
+  const getCustomer = async () => {
     try {
-      //http://localhost:3001/name
-      const response = await apiConn.get("/name");
+      //http://localhost:3001/customer
+      const response = await apiConn.get("/customer");
       console.log(response.data);
-      setName(response.data);
+      setCustomer(response.data);
     } catch (error) {
       console.log(error.message);
     }
@@ -35,7 +34,7 @@ function App() {
 
   const getTickets = async () => {
     try {
-      const response = await apiConn.get("/tickets");
+      const response = await apiConn.get("/ticketing");
       console.log(response.data);
       setTickets(response.data);
     } catch (error) {
@@ -43,11 +42,11 @@ function App() {
     }
   }
 
-  const createName = async (formData) => {
+  const createCustomer = async (formData) => {
     try {
-      const response = await apiConn.post("/name", {name: formData.name});
+      const response = await apiConn.post("/customer", {name: formData.customer, season_pass_holder: formData.seasonPass});
       console.log(response.data);
-      getName();
+      getCustomer();
     } catch (error) {
       console.log(error.message);
     }
@@ -56,7 +55,7 @@ function App() {
   const createTicket = async (ticketData) => {
     console.log(ticketData)
     try {
-      const response = await apiConn.post("/tickets", ticketData);
+      const response = await apiConn.post("/ticketing", ticketData);
       console.log(response.data);
       getTickets();
     } catch (error) {
@@ -65,16 +64,16 @@ function App() {
   }
     
   useEffect(() => {
-    getName();
+    getCustomer();
     getTickets();
   }, []);
 
 
   return (
-    <div className="App">
+    <div classCustomer="App">
       <h1>Ticket Purchasing</h1>
-      <NameDisplay list={name} />
-      <AddNameForm handlerAddName={createName} />
+      <CustomerDisplay list={customer} />
+      <AddCustomerForm handlerAddCustomer={createCustomer} />
       <p>
         Not a Season Pass Holder?
         Purchase Tickets Below.

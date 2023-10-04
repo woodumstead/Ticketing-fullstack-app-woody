@@ -18,6 +18,7 @@ const Ticketing = require("../models/ticketingModel")
 exports.getAllTickets = async (req, res) => {
     await Ticketing.findAll() 
     .then((result) => res.json(result))
+    .catch((error) => res.send("error accurd"))
 }
 
 // get by id
@@ -43,10 +44,10 @@ exports.addNewTicket = async (req, res) => {
         match: req.body.match,
         date: req.body.date,
         customer_id: req.body.customer_id
-    });
+    }).catch((error) => {console.log("error accurd")})
 
-    const result = await Ticketing.findAll();
-    return res.status(201).json(result);
+    //const result = await Ticketing.findAll();
+    return res.status(201).json(req.body);
 }
 
 // delete

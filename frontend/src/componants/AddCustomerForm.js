@@ -1,26 +1,26 @@
 import { useState } from "react";
 
-const AddNameForm = ({handlerAddName}) => {
-    const [AddName, setAddName] = useState("");
-    const [passHolder, setPassHolder] = useState("");
+const AddCustomerForm = ({handlerAddCustomer}) => {
+    const [AddCustomer, setAddCustomer] = useState("");
+    const [passHolder, setPassHolder] = useState(false);
 
 
-    const handlerName = (event) => {
-        setAddName(event.target.value);
+    const handlerCustomer = (event) => {
+        setAddCustomer(event.target.value);
     }
 
     const handlerPassHolder = (event) => {
-      setPassHolder(event.target.value);
+      setPassHolder(!passHolder);
   }
 
 
     const handlerSubmit = (event) => {
         event.preventDefault();
         const formData = {
-            name: AddName,
+            customer: AddCustomer,
             seasonPass: passHolder
         }
-        handlerAddName(formData);
+        handlerAddCustomer(formData);
     }
 
     return (
@@ -34,16 +34,17 @@ const AddNameForm = ({handlerAddName}) => {
               onChange={handlerPassHolder}
             />
             <button>Check if Pass Holder</button>
-          </form>
+          
             <input 
                 type='text' 
-                name='name' 
-                placeholder='Add Name' 
-                onChange={handlerName} 
+                customer='customer' 
+                placeholder='Add Customer' 
+                onChange={handlerCustomer} 
             />
-            <button>Name</button>
+            <button>Customer</button>
+            </form>
         </div>
       )
 }
 
-export default AddNameForm;
+export default AddCustomerForm;
