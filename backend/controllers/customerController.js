@@ -14,7 +14,7 @@ const Customer = require("../models/customerModel")
 exports.getAllCustomers = async (req, res) => {
     await Customer.findAll() 
     .then((result) => res.json(result))
-    .catch((error) => res.send("error accurd"))
+    .catch((error) => res.send("error occurred"))
 }
 
 // get by id
